@@ -1,7 +1,7 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
   user: "me", //db user
-  host: "127.0.0.1", //db host etc: 127.0.0.1
+  host: "18.222.64.141", //db host etc: 127.0.0.1
   database: "energygigsdb", //db name
   password: "password", // password
   port: 5432, // db port etc: 5432 for postgresql
@@ -50,6 +50,8 @@ const getAllUserss = (request, response) => {
   });
   // console.log(request.body);
   // response.status(200).json("response.body")
+  response.status(200).json("results.rows");
+
 
   //   next();
 };
