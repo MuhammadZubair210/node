@@ -50,7 +50,7 @@ const getAllUserss = (request, response) => {
   });
   // console.log(request.body);
   // response.status(200).json("response.body")
-  response.status(200).json("results.rows");
+  // response.status(200).json("results.rows");
 
 
   //   next();
