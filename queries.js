@@ -33,8 +33,8 @@ const getAllUsers = (request, response) => {
       response.status(200).json(results.rows);
     }
   );
-  console.log(request.body);
-//   response.status(200).json("response.body")
+  // console.log(request.body);
+  // response.status(200).json("response.body")
 
 //   next();
 };
