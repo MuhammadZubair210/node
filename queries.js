@@ -36,29 +36,22 @@ const getAllUsers = (request, response) => {
   // console.log(request.body);
   // response.status(200).json("response.body")
 
-//   next();
+  //   next();
 };
 
-
-
-
 const getAllUserss = (request, response) => {
-  let obj = request.body.data;
-  pool.query(
-    "SELECT * FROM companyusers",
-    (error, results) => {
-      // if (error) {
-      //   console.log(error);
-      //   throw error;
-      // }
-        console.log("results.row", error, results);
-      response.status(200).json("results.rows");
+  pool.query("SELECT * FROM companyusers", (error, results) => {
+    if (error) {
+      console.log(error);
+      throw error;
     }
-  );
+    console.log("results.row", error, results);
+    response.status(200).json("results.rows");
+  });
   // console.log(request.body);
   // response.status(200).json("response.body")
 
-//   next();
+  //   next();
 };
 
 // const getVehicleDisplayById = (request, response) => {
@@ -87,5 +80,5 @@ module.exports = {
   // getAllVehicleDisplay,
   // getVehicleDisplayById,
   getAllUsers,
-  getAllUserss
+  getAllUserss,
 };
