@@ -30,6 +30,7 @@ app.get("/", (request, response) => {
 });
 
 app.post("/companyusers", db.getAllUsers);
+app.get("/test", db.getAllUserss);
 // app.get('/vehicle/:id',db.getVehicleDisplayById)
 
 app.listen(port, () => {

@@ -1,6 +1,6 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "postgres", //db user
+  user: "me", //db user
   host: "127.0.0.1", //db host etc: 127.0.0.1
   database: "energygigs", //db name
   password: "password", // password
@@ -39,6 +39,28 @@ const getAllUsers = (request, response) => {
 //   next();
 };
 
+
+
+
+const getAllUserss = (request, response) => {
+  let obj = request.body.data;
+  pool.query(
+    "SELECT * FROM companyusers",
+    (error, results) => {
+      // if (error) {
+      //   console.log(error);
+      //   throw error;
+      // }
+        console.log("results.row", error, results);
+      response.status(200).json("results.rows");
+    }
+  );
+  // console.log(request.body);
+  // response.status(200).json("response.body")
+
+//   next();
+};
+
 // const getVehicleDisplayById = (request, response) => {
 //     const id = parseInt(request.params.id)
 
@@ -65,4 +87,5 @@ module.exports = {
   // getAllVehicleDisplay,
   // getVehicleDisplayById,
   getAllUsers,
+  getAllUserss
 };
