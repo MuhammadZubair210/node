@@ -1,15 +1,20 @@
 const Pool = require("pg").Pool;
 const pool = new Pool({
-  user: "me", //db user
-  host: "18.222.64.141", //db host etc: 127.0.0.1
-  database: "energygigsdb", //db name
-  password: "password", // password
-  port: 5432, // db port etc: 5432 for postgresql
+  // user: "me", //db user
+  // host: "18.222.64.141", //db host etc: 127.0.0.1
+  // database: "energygigsdb", //db name
+  // password: "password", // password
+  // port: 5432, // db port etc: 5432 for postgresql
+  host: "energygigs.cx6folrfiqfh.us-east-2.rds.amazonaws.com",
+  user: "postgres",
+  password: "postgres",
+  port:5432
 });
 // `INSERT INTO companyusers (companyname, email, password, companyaddress, city, zipcode, companysize, industry, companywebsite, logo) VALUES(${obj.details.companyname}, ${obj.details.companyEmailAddress}, ${obj.details.password}, ${obj.comapnyAddress}, ${obj.city}, ${obj.zip}, ${obj.conpanySize}, "null", "/photo-1514870262631-55de0332faf6?", "55de0332faf6?");`,
 
 const getAllUsers = (request, response) => {
   let obj = request.body.data;
+  console.log(obj)
   pool.query(
     "INSERT INTO companyusers (companyname, email, password, companyaddress, city, zipcode, companysize, industry, companywebsite, logo) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);",
     [
@@ -20,7 +25,8 @@ const getAllUsers = (request, response) => {
       obj.city,
       obj.zip,
       obj.conpanySize,
-      "null",
+      // "null",
+      obj.industry,
       obj.companyWebsite,
       obj.uploadLogo,
     ],
@@ -30,6 +36,7 @@ const getAllUsers = (request, response) => {
         throw error;
       }
       //   console.log("results.row", results.rows);
+      console.log(results.fields)
       response.status(200).json(results.rows);
     }
   );
