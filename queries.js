@@ -10,11 +10,19 @@ const pool = new Pool({
   password: "postgres",
   port:5432
 });
+
+
+pool.connect(function(err) {
+  if (err) throw err;
+  console.log("Connected!");
+  pool.end();
+});
 // `INSERT INTO companyusers (companyname, email, password, companyaddress, city, zipcode, companysize, industry, companywebsite, logo) VALUES(${obj.details.companyname}, ${obj.details.companyEmailAddress}, ${obj.details.password}, ${obj.comapnyAddress}, ${obj.city}, ${obj.zip}, ${obj.conpanySize}, "null", "/photo-1514870262631-55de0332faf6?", "55de0332faf6?");`,
 
+
+pool.conn
 const getAllUsers = (request, response) => {
   let obj = request.body.data;
-  console.log(obj)
   pool.query(
     "INSERT INTO companyusers (companyname, email, password, companyaddress, city, zipcode, companysize, industry, companywebsite, logo) VALUES($1, $2, $3, $4, $5, $6, $7, $8, $9, $10);",
     [
