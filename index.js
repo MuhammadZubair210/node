@@ -20,11 +20,11 @@ const pool = new Pool({
 });
 
 
-pool.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  pool.end();
-});
+// pool.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   pool.end();
+// });
 
 app.use( (req, res, next) => {
   res.header("Access-Control-Allow-Origin", "*");

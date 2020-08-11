@@ -12,11 +12,11 @@ const pool = new Pool({
 });
 
 
-pool.connect(function(err) {
-  if (err) throw err;
-  console.log("Connected!");
-  pool.end();
-});
+// pool.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+//   pool.end();
+// });
 // `INSERT INTO companyusers (companyname, email, password, companyaddress, city, zipcode, companysize, industry, companywebsite, logo) VALUES(${obj.details.companyname}, ${obj.details.companyEmailAddress}, ${obj.details.password}, ${obj.comapnyAddress}, ${obj.city}, ${obj.zip}, ${obj.conpanySize}, "null", "/photo-1514870262631-55de0332faf6?", "55de0332faf6?");`,
 
 
